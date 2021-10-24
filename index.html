@@ -48,8 +48,7 @@
         console.log('Successful login for: ' + response.id,
           response.first_name,
           response.last_name,
-          response.middle_name,
-          response.picture,
+          response.picture.data.url,
           response.email);
         document.getElementById('status').innerHTML =
           'Thanks for logging in, ' + response.name + '!';
