@@ -50,9 +50,17 @@
           response.last_name,
           response.picture.data.url,
           response.email);
+          
+          $('#profiledetails').innerHTML = 'FIRST NAME : '+response.first_name
+          $('#profiledetails').innerHTML = 'LAST NAME : '+response.first_name
+          $('#profiledetails').innerHTML = 'EMAIL : '+response.first_name
+
+          $('#imageval').src = 'http://graph.facebook.com/'+response.id+'/picture'
+
         document.getElementById('status').innerHTML =
           'Thanks for logging in, ' + response.name + '!';
       });
+
     }
 
   </script>
@@ -65,7 +73,10 @@
 
   <div id="status">
   </div>
-
+<div id='profiledetails'>
+  
+<img src="" id='imageval' alt="">
+</div>
   <!-- Load the JS SDK asynchronously -->
   <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
 </body>
