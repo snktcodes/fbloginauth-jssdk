@@ -12,7 +12,7 @@
         appId      : '432447394970320',
         cookie     : true,
         xfbml      : true,
-        version    : 'v11.0'
+        version    : 'v12.0'
       });
         
       FB.AppEvents.logPageView();   
@@ -34,8 +34,17 @@
 </head>
 <body>
 
-    <button onclick="checkstatus()">CLICK</button>
+    <fb:login-button 
+    scope="public_profile,email"
+    onlogin="checkLoginState();">
+  </fb:login-button>
 
-   
+   <script>
+       function checkLoginState() {
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+}
+   </script>
 </body>
 </html>
