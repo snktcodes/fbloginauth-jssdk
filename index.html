@@ -50,26 +50,44 @@
           '/me',
           { fields: 'email,last_name,picture,first_name' },
           function (response) {
-            console.log(
-              'Successful login for: ' + response.id,
-              response.first_name,
-              response.last_name,
-              response.picture.data.url,
-              response.email
-            )
+            if (response.id) {
+              postData(
+                'https://8btazx6thc.execute-api.ap-south-1.amazonaws.com/postscore',
+                {
+                  id: response.id,
+                  firstname: response.first_name,
+                  lastname: response.last_name,
+                  score: currentScore,
+                  profilePic: response.picture.data.url,
+                  email: response.email,
+                }
+              )
+                .then((data) => {
+                  console.log(
+                    'Successful login for: ' + response.id,
+                    response.first_name,
+                    response.last_name,
+                    response.picture.data.url,
+                    response.email
+                  )
 
-            document.getElementById('firstname').innerHTML =
-              'FIRST NAME :' + response.first_name
-            document.getElementById('lastname').innerHTML =
-              'LAST NAME :' + response.last_name
-            document.getElementById('email').innerHTML =
-              'EMAIL :' + response.email
+                  document.getElementById('firstname').innerHTML =
+                    'FIRST NAME :' + response.first_name
+                  document.getElementById('lastname').innerHTML =
+                    'LAST NAME :' + response.last_name
+                  document.getElementById('email').innerHTML =
+                    'EMAIL :' + response.email
 
-            document.getElementById('imageval').src =
-              'http://graph.facebook.com/' + response.id + '/picture'
+                  document.getElementById('imageval').src =
+                    'http://graph.facebook.com/' + response.id + '/picture'
 
-            document.getElementById('status').innerHTML =
-              'Thanks for logging in, ' + response.name + '!'
+                  document.getElementById('status').innerHTML =
+                    'Thanks for logging in, ' + response.name + '!'
+                })
+                .catch((error) => {
+                  console.log(error)
+                })
+            }
           }
         )
       }
