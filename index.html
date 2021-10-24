@@ -51,11 +51,12 @@
           response.picture.data.url,
           response.email);
           
-          $('#profiledetails').innerHTML = 'FIRST NAME : '+response.first_name
-          $('#profiledetails').innerHTML = 'LAST NAME : '+response.first_name
-          $('#profiledetails').innerHTML = 'EMAIL : '+response.first_name
+          document.getElementById('#profiledetails')append( '<p>FIRST NAME :' +response.first_name+'</p>' ); 
+          document.getElementById('#profiledetails')append( '<p>LAST NAME :' +response.last_name+'</p>' ); 
+          document.getElementById('#profiledetails')append( '<p>EMAIL :' +response.email+'</p>' ); 
+          
 
-          $('#imageval').src = 'http://graph.facebook.com/'+response.id+'/picture'
+          document.getElementById('#imageval').src = 'http://graph.facebook.com/'+response.id+'/picture'
 
         document.getElementById('status').innerHTML =
           'Thanks for logging in, ' + response.name + '!';
