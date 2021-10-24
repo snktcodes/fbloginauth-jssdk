@@ -51,9 +51,9 @@
           response.picture.data.url,
           response.email);
           
-          document.getElementById('#profiledetails')append( '<p>FIRST NAME :' +response.first_name+'</p>' ); 
-          document.getElementById('#profiledetails')append( '<p>LAST NAME :' +response.last_name+'</p>' ); 
-          document.getElementById('#profiledetails')append( '<p>EMAIL :' +response.email+'</p>' ); 
+          document.getElementById('#profiledetails').append( '<p>FIRST NAME :' +response.first_name+'</p>' ); 
+          document.getElementById('#profiledetails').append( '<p>LAST NAME :' +response.last_name+'</p>' ); 
+          document.getElementById('#profiledetails').append( '<p>EMAIL :' +response.email+'</p>' ); 
           
 
           document.getElementById('#imageval').src = 'http://graph.facebook.com/'+response.id+'/picture'
